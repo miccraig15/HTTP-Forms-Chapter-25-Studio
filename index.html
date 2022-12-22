@@ -4,9 +4,35 @@
 	<meta charset="utf-8">
 	<script>
 		// TODO: create a handler
+	function setSearchEngine(){
+		console.log("it's running");
+		let engineSelection = document.querySelector(input[name=engine],checked);
+		let actionURL;
+		let actions = {
+			"google": "https://www.google.com/search",
+			"duckDuckGo": "https://duckduckgo.com/",
+			"bing": "https://www.bing.com/search",
+			"ask": "https://www.ask.com/web"
+		};
+			if(engineSelection === "google") {
+				actionURL = actions[0].value
+			};
+			if(engineSelection === "duckDuckGo") {
+				actionURL = actions[1].value
+			};
+			if(engineSelection === "bing") {
+				actionURL = actions[2].value
+			};
+			if(engineSelection === "ask") {
+				actionURL = actions[3].value
+			};
+	}
     window.addEventListener("load", function(){
+		let form = document.querySelector("form");
+		form.addEventListener("Go", setSearchEngine())
+		form.setAttribute("POST", "actionURL")
+		});
         // TODO: register the handler
-    });
 	</script>
 </head>
 
@@ -19,7 +45,7 @@
 		<label><input type="radio" name="engine" value="duckDuckGo"/>DuckDuckGo</label>
 		<label><input type="radio" name="engine" value="bing"/>Bing</label>
 		<label><input type="radio" name="engine" value="ask"/>Ask</label>
-		<button>Go</button>
+		<button>Go!</button>
 	</form>
 
 </body>
